@@ -1,0 +1,16 @@
+{
+    "sprint": {
+        "url": "url_ambiente",
+        "admin": {
+            "username": "seu_usuario_sprint",
+            "password": "sua_senha_sprint"
+        }
+    },
+    "producao": {
+        "url": "",
+        "admin": {
+            "username": "",
+            "password": ""
+        }
+    }
+}
