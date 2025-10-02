@@ -18,14 +18,12 @@ test('Verifica campos obrigatórios', async ({ page }) => {
 });
 
 test('Cria usuário de acesso', async ({ page }) => {
-    await page.users.visit();
-    // Cria um usuário com dados aleatórios
     const user = createUser();
+
+    await page.users.visit();
 
     await page.users.clickNewUser();
     await page.users.createUser(user);
-
-    // Verifica se o usuário foi criado com sucesso
     const target = 'Usuário criado com sucesso!';
     await page.users.alertHaveText(target);
 

@@ -50,10 +50,9 @@ export class Users {
     }
 
     async selectRole(role) {
+        await this.page.fill(this.roleSelect, role);
         // Aguarda o carregamento completo da página
         await this.page.waitForLoadState('networkidle');
-
-        await this.page.fill(this.roleSelect, role);
         await this.page.locator(`li:has-text("${role}")`).click();
         await expect(this.page.locator('[data-cy="group-select"]')).toContainText(role);
     }
@@ -93,5 +92,7 @@ export class Users {
         await this.selectRole(role);
         
         await this.save();
+        // Aguarda o carregamento completo da página
+        await this.page.waitForLoadState('networkidle');
     }
 }
